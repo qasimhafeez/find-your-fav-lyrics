@@ -2,11 +2,24 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const Context = React.createContext();
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SEARCH_TRACK":
+      return {
+        ...state,
+        track_list: action.payload,
+        heading: `Search Results for "${action.trackTitle}"`
+      };
+    default:
+      return state;
+  }
+};
 
 export class Provider extends Component {
   state = {
     track_list: [],
-    heading: "Top 10 tracks"
+    heading: "Top 10 tracks",
+    dispatch: action => this.setState(state => reducer(state, action))
   };
 
   // Component lifecycle

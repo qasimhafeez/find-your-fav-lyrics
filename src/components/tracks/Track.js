@@ -12,11 +12,11 @@ const Track = props => {
             <strong>
               <i className="fas fa-play"></i> Track
             </strong>
-            :{track.track_name} <br />
+            : {track.track_name} <br />
             <strong>
               <i className="fas  fa-compact-disc"></i>Album
             </strong>
-            :{track.album_name}
+            : {track.album_name}
           </p>
           <Link
             to={`lyrics/track/${track.track_id}`}
